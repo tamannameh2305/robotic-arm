@@ -1,0 +1,128 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 313.8, "left": 271.6, "attrs": {} },
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": -9.6, "left": 148.84, "attrs": {} },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot1",
+      "top": -139,
+      "left": 450.2,
+      "attrs": { "travelLength": "30", "label": "Middle" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot2",
+      "top": -225.4,
+      "left": 450.2,
+      "attrs": { "travelLength": "30", "label": "Index" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot3",
+      "top": -311.8,
+      "left": 459.8,
+      "attrs": { "travelLength": "30", "label": "Thumb" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot4",
+      "top": 33.8,
+      "left": 450.2,
+      "attrs": { "travelLength": "30", "label": "Pinky" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot5",
+      "top": -52.6,
+      "left": 450.2,
+      "attrs": { "travelLength": "30", "label": "Ring" }
+    },
+    {
+      "type": "wokwi-slide-potentiometer",
+      "id": "pot6",
+      "top": 120.2,
+      "left": 450.2,
+      "attrs": { "travelLength": "30", "label": "Wrist" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -124.8,
+      "left": 681.6,
+      "attrs": { "text": "Middle " }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -211.2,
+      "left": 681.6,
+      "attrs": { "text": "Index\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text4",
+      "top": 48,
+      "left": 681.6,
+      "attrs": { "text": "little\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text5",
+      "top": -38.4,
+      "left": 681.6,
+      "attrs": { "text": "Ring\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text6",
+      "top": 134.4,
+      "left": 681.6,
+      "attrs": { "text": "Wrist\n" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text7",
+      "top": -288,
+      "left": 681.6,
+      "attrs": { "text": "Thumb\n" }
+    },
+    { "type": "wokwi-mpu6050", "id": "imu1", "top": 282.22, "left": 40.72, "attrs": {} }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "esp:3V3", "bb1:tp.3", "red", [ "h-38.25", "v-48", "h0" ] ],
+    [ "pot3:VCC", "bb1:tp.4", "red", [ "h-115.2", "v585.3" ] ],
+    [ "pot2:VCC", "bb1:tp.5", "red", [ "h-105.6", "v508.5" ] ],
+    [ "pot1:VCC", "bb1:tp.6", "red", [ "h-86.4", "v422.1" ] ],
+    [ "pot5:VCC", "bb1:tp.7", "red", [ "h0" ] ],
+    [ "pot4:VCC", "bb1:tp.8", "red", [ "h-19.2", "h-49.6" ] ],
+    [ "pot6:VCC", "bb1:tp.9", "red", [ "h-57.6", "v163.2" ] ],
+    [ "esp:GND.2", "bb1:tn.1", "green", [ "v-28.8", "h9.6", "h48", "v345.7" ] ],
+    [ "pot3:GND", "bb1:tn.25", "green", [ "h72.4", "v604.9" ] ],
+    [
+      "pot2:GND",
+      "bb1:tn.25",
+      "green",
+      [ "v0", "h82", "v-19.2", "h0", "v19.2", "h0", "v0", "h0", "v0", "h0", "v-76.8" ]
+    ],
+    [ "pot1:GND", "bb1:tn.25", "green", [ "v0", "h82", "v0" ] ],
+    [ "pot5:GND", "bb1:tn.25", "green", [ "v0", "h82", "v345.6", "h0" ] ],
+    [ "pot4:GND", "bb1:tn.25", "green", [ "v0", "h82", "v0", "h0", "v259.2" ] ],
+    [ "pot6:GND", "bb1:tn.25", "green", [ "v0", "h82", "v172.8" ] ],
+    [ "pot3:SIG", "esp:32", "gold", [ "h-153.6", "v-0.8", "h-201.6", "v316.8" ] ],
+    [ "pot2:SIG", "esp:33", "orange", [ "h-345.6", "v248.8" ] ],
+    [ "pot1:SIG", "esp:34", "blue", [ "h-326.4", "v124" ] ],
+    [ "pot5:SIG", "esp:35", "violet", [ "v-68", "h-316.8", "v124.8" ] ],
+    [ "pot4:SIG", "esp:VP", "white", [ "h-182.4", "v114.4", "h-153.6", "v-172.8" ] ],
+    [ "pot6:SIG", "esp:VN", "cyan", [ "h-172.8", "v47.2", "h-153.6", "v-182.4" ] ],
+    [ "imu1:VCC", "bb1:tp.2", "red", [ "v-19.2", "h192.08" ] ],
+    [ "imu1:GND", "esp:GND.1", "green", [ "h-28.72", "v-144" ] ],
+    [ "imu1:SDA", "esp:21", "purple", [ "v-38.4", "h192.08", "v-182.4" ] ],
+    [ "imu1:SCL", "esp:22", "cyan", [ "v-28.8", "h192.08", "v-220.8", "h-48" ] ]
+  ],
+  "dependencies": {}
+}
